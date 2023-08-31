@@ -19,7 +19,8 @@ async function fetchBlog(blogId: string) {
       headers: new Headers({
         apikey: process.env.apikey as string,
       }),
-      cache: 'no-store',
+      // cache: 'no-store',
+      cache: 'force-cache',
     }
   )
   // if (!res.ok) {
@@ -52,4 +53,17 @@ export default async function BlogDetailPage({ params }: PageProps) {
       </Link>
     </div>
   )
+}
+
+export async function generateStaticParams() {
+  const res = await fetch(`${process.env.url}/rest/v1/blogs?select=*`, {
+    headers: new Headers({
+      apikey: process.env.apikey as string,
+    }),
+  })
+  const blogs: Blog[] = await res.json()
+
+  return blogs.map((blog) => ({
+    blogId: blog.id.toString(),
+  }))
 }
