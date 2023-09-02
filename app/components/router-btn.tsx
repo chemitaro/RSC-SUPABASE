@@ -10,9 +10,7 @@ export default function RouterBtn({
   return (
     <button
       className='rounded bg-indigo-600 px-3 py-1 font-mefium text-white hover:bg-indigo-700'
-      onClick={() => {
-        router.push(`/${destination}`)
-      }}
+      onClick={() => { router.push(`/${destination}`)}}
     >
       Nav to {destination ? destination : 'home'}
     </button>
