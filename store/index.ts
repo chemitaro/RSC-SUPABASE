@@ -18,16 +18,10 @@ type State = {
 }
 const useStore = create<State>((set) => ({
   editedTask: { id: '', title: '' },
-  updateEditedTask: (payload) =>
-    set({
-      editedTask: payload,
-    }),
+  updateEditedTask: (payload) => set({ editedTask: payload }),
   resetEditedTask: () => set({ editedTask: { id: '', title: '' } }),
   loginUser: { id: '', email: '' },
-  updateLoginUser: (payload) =>
-    set({
-      loginUser: payload,
-    }),
+  updateLoginUser: (payload) => set({ loginUser: payload }),
   resetLoginUser: () => set({ loginUser: { id: '', email: '' } }),
 }))
 export default useStore
