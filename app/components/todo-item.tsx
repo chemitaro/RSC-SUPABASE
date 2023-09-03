@@ -22,22 +22,22 @@ export default function TodoItem(todo: Todo) {
     router.refresh()
   }
   return (
-    <li className='my-2'>
+    <li className="my-2">
       <input
-        className='mr-1'
-        type='checkbox'
+        className="mr-1"
+        type="checkbox"
         checked={todo.completed}
         onChange={(e) => updateMutate(todo.id, !todo.completed)}
       />
-      <Link href={`auth/todo-right ml-20 flex`}>{todo.title}</Link>
-      <div className='float-right ml-20 flex'>
+      <Link href={`auth/todo-crud/${todo.id}`}>{todo.title}</Link>
+      <div className="float-right ml-20 flex">
         <PencilIcon
-          className='mx-1 h-5 w-5 cursor-pointer text-blue-500'
+          className="mx-1 h-5 w-5 cursor-pointer text-blue-500"
           onClick={() => { updateTask({ id: todo.id, title: todo.title }) }}
         />
         <TrashIcon
-          className='h-5 w-5 cursor-pointer text-blue-500'
-          onClick={() => { deleteMutate(todo.id)}}
+          className="h-5 w-5 cursor-pointer text-blue-500"
+          onClick={() => { deleteMutate(todo.id) }}
         />
       </div>
     </li>
